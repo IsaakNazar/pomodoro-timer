@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Jura:300,400" rel="stylesheet">
+  </head>
+  <body>
+    <div class="pomodoro">
+
+      <a id="modal_btn"><i class="fas fa-sliders-h"></i></a>
+
+      <div class="modal">
+        <div class="modal_content">
+          <span class="close">&times;</span>
+
+          <div class="settings">
+            <p>Break Length: <span class="timer_length break_length">1</span></p>
+            <input type="range" class="slider break_range" name="break" min="1" max="30" step="1" value="1">
+          </div>
+          <div class="settings">
+            <p>Session Length: <span class="timer_length session_length">1</span></p>
+            <input type="range" class="slider session_range" name="session" min="1" max="60" step="1" value="1">
+          </div>
+
+        </div>
+      </div>
+
+      <h1>Pomodoro Timer</h1>
+      <div class="pomodoro_timer_box">
+
+        <div class="timer_display" style="font-size:50px;">
+          <p id="title">Session</p>
+          <div class="clock">
+            <span id="minutes">00</span>:<span id="seconds">00</span>
+          </div>
+        </div>
+
+        <button class="start_btn">Start</button>
+        <button class="pause_btn">Pause</button>
+        <button class="reset_btn">Reset</button>
+      </div>
+
+    </div>
+    <audio id="audioSound" src="sound/rom.wav"></audio>
+
+    <script type="text/javascript" src="index.js">
+    </script>
+  </body>
+</html>
