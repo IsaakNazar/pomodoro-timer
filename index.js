@@ -17,7 +17,8 @@ const resetBtn = pomodoro.querySelector('.reset_btn');
 const modal = pomodoro.querySelector('.modal');
 const settingsBtn = pomodoro.querySelector('#modal_btn');
 const xBtn = pomodoro.querySelector('.close');
-
+const breakMin = pomodoro.querySelector('#breakMin');
+var dur = ' minute';
 var countTimerDown;
 var paused = false;
 var tempM, tempS;// hold values of minutes and seconds
@@ -38,15 +39,16 @@ window.onclick = function(e) {
 }
 
 function handleSessionRangeUpdate() {
-  //change the content of session_length
-  //as session input range will be changed
+  //the content of session_length and
+  // timer will be changed
+  //as you move the session slider
   session_length.innerHTML = sessionRange.value;
+  minsDisplay.innerHTML = parseInt(sessionRange.value) < 10 ? ('0' + sessionRange.value) : sessionRange.value;
 }
 
 function handleBreakRangeUpdate() {
   break_length.innerHTML = breakRange.value;
 }
-
 
 //pause the timer
 function pause() {
@@ -121,7 +123,6 @@ function timer(seconds, type) {
   }, 1000);
 }
 
-
 //display the timer correctly on the screen in a digital format
 function displayTime(seconds) {
   //get minutes and seconds
@@ -137,10 +138,8 @@ function displayTime(seconds) {
   document.title = `${m}:${s}`;
 }
 
-
-
-sessionRange.addEventListener('change', handleSessionRangeUpdate);
-breakRange.addEventListener('change', handleBreakRangeUpdate);
+sessionRange.addEventListener('mousemove', handleSessionRangeUpdate);
+breakRange.addEventListener('mousemove', handleBreakRangeUpdate);
 resetBtn.addEventListener('click', reset);
 pauseBtn.addEventListener('click', pause);
 startBtn.addEventListener('click', start);
