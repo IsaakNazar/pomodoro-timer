@@ -76,11 +76,11 @@ function start() {
   let sessionTime = parseInt(sessionRange.value);
 
   if(paused === false){
-    timer(sessionTime*6,title.innerHTML);
+    timer(sessionTime*60,title.innerHTML);
   }else{
     //clear timer and continue timer from the last paused time
     clearInterval(countTimerDown);
-    timer(tempM*6+tempS,title.innerHTML);
+    timer(tempM*60+tempS,title.innerHTML);
   }
 
   console.log(paused);
@@ -108,11 +108,11 @@ function timer(seconds, type) {
       switch (type) {
       case "Session":
           title.innerHTML = 'Break';
-          timer(parseInt(breakRange.value*6), "Break");
+          timer(parseInt(breakRange.value*60), "Break");
       break;
       case "Break":
           title.innerHTML = 'Session';
-          timer(parseInt(sessionRange.value*6), "Session");
+          timer(parseInt(sessionRange.value*60), "Session");
       break;
     }
     return;
